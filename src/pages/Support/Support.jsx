@@ -1,8 +1,15 @@
 import React from 'react'
-
-const Support = () => {
+import SupportBoxes from './SupportBoxes.jsx'
+import HeroSupport from './SupportMain.jsx'
+import Frequent from '../../components/Home/Frequent.jsx'
+function Support() {
   return (
-    <div>Support</div>
+    <div>
+      <HeroSupport/>
+      <SupportBoxes/>
+      <Frequent />
+
+    </div>
   )
 }
 
