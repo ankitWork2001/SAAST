@@ -1,49 +1,56 @@
 import React from 'react';
 
-// icon is import here 
-import { FaRegUserCircle } from "react-icons/fa";
-import { TiArrowRightThick } from "react-icons/ti";
-
-/// import button from ui
-import Button from './component/Button';
-import Graph from './component/Graph';
-import Notification from './component/Notification';
-import Table from './component/Table';
-
+// componet is imported here 
+import UserTable from "./component/UserTable.jsx";
 
 function Dashboard() {
   return (
     <>
-      <div className='w-full m-h-screen snap-none p-5 flex flex-col justify-center items-center m-auto'>
+      <div className=' p-10 flex flex-col gap-5'>
+        <span className='text-4xl font-bold'>Dashboard</span>
+        <div className='flex justify-evenly'>
 
-        <div className='flex gap-12 w-full p-5'>
-          <Button title="Details" value="340" icon={<FaRegUserCircle />} />
-          <Button title="Details" value="340" icon={<FaRegUserCircle />} />
-          <Button title="Details" value="340" icon={<FaRegUserCircle />} />
-          <Button title="Details" value="340" icon={<FaRegUserCircle />} />
-        </div>
-        <div className='grid grid-cols-2 p-10 gap-20 w-full '>
-          <div className='bg-[#0A0E23B5] p-10 rounded-3xl'>
-            <Graph />
+          <div className='bg-[#0594BB] w-[20rem] h-[10rem] flex flex-col rounded-2xl pl-10 pt-4'>
+            <span className='text-[1.8rem] font-bold'>Total User</span>
+            <span className='text-[3rem] font-bold'>12,532</span>
           </div>
-          <div className='bg-[#0A0E23B5] p-8 rounded-3xl'>
-            <Notification />
+
+          <div className='bg-[#0594BB] w-[20rem] h-[10rem] flex flex-col rounded-2xl pl-10 pt-4'>
+            <span className='text-[1.8rem] font-bold'>Total Subscriptions</span>
+            <span className='text-[3rem] font-bold'>6,829</span>
           </div>
+
+          <div className='bg-[#0594BB] w-[20rem] h-[10rem] flex flex-col rounded-2xl pl-10 pt-4'>
+            <span className='text-[1.8rem] font-bold'>Total Review</span>
+            <span className='text-[3rem] font-bold'>8,645</span>
+          </div>
+
+          <div className='bg-[#0594BB] w-[20rem] h-[10rem] flex flex-col rounded-2xl pl-10 pt-4'>
+            <span className='text-[1.8rem] font-bold'>Revenue</span>
+            <span className='text-[3rem] font-bold'>$23,450</span>
+          </div>
+
         </div>
 
-        <div className='bg-[#0A0E23B5] py-5 px-12 rounded-3xl w-[73vw] flex flex-col gap-5'>
-          <div>
-            <span className='text-3xl font-bold'>Notification</span>
-            <div className='flex gap-3 text-xl font-medium mt-1'>
-              <TiArrowRightThick className='text-2xl  text-green-500' />
-              <span>This Month</span>
+        <div className='px-10 py-5 flex flex-col rounded-2xl bg-white/10'>
+          <div className='flex justify-between w-full'>
+            <span className='text-2xl'>Revenue Over Time</span>
+            <div className='flex gap-8'>
+              <button className='px-4 py-1 h-10 rounded bg-[#0594BB]'>Monthly</button>
+              <button className='px-4 py-1 h-10 rounded bg-[#0594BB]'>This Month</button>
             </div>
           </div>
-          <div>
-            <Table />
+
+
+          {/* /// chart is here  */}
+          <div className='h-[20rem] w-full mt-7  flex justify-center items-center m-auto '>
+            <span className="text-5xl uppercase">Chart</span>
           </div>
         </div>
 
+        <div className='px-10 py-5 flex flex-col rounded-2xl bg-white/10'>
+          <UserTable/>
+        </div>
       </div>
     </>
   )

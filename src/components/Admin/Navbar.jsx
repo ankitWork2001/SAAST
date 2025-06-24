@@ -2,26 +2,26 @@ import { FaBell, FaEnvelope } from "react-icons/fa";
 
 export default function Navbar() {
   return (
-    <header className="bg-gradient-to-r from-[#0f172a] to-[#1e293b] px-6 py-4 shadow flex justify-between items-center">
+    <header className="bg-[linear-gradient(135deg,_rgba(1,11,36,1)_11%,_rgba(24,35,255,1)_100%)] px-6 py-4 shadow flex justify-between items-center">
       {/* Search */}
       <input
         type="text"
         placeholder="Search"
-        className="px-4 py-2 rounded-full bg-gray-700 text-white placeholder:text-gray-300 w-64 focus:outline-none"
+        className="px-6 py-4 rounded-full bg-white text-xl font-bold text-gray-600 placeholder:text-gray-500 w-64 focus:outline-none"
       />
 
       {/* Right side */}
       <div className="flex items-center gap-6">
-        <FaBell className="text-xl cursor-pointer" />
-        <FaEnvelope className="text-xl cursor-pointer" />
+        <FaBell className="text-3xl cursor-pointer" />
+        <FaEnvelope className="text-3xl cursor-pointer" />
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 hidden">
           <img
             src="https://via.placeholder.com/40"
             alt="User"
             className="w-10 h-10 rounded-full object-cover"
           />
-          <div className="text-sm">
+          <div className="text-sm hidden">
             <p className="font-semibold">Sean Mackey</p>
             <p className="text-gray-400 text-xs">Admin</p>
           </div>
