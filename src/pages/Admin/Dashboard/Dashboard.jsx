@@ -10,22 +10,22 @@ function Dashboard() {
         <span className='text-4xl font-bold'>Dashboard</span>
         <div className='flex justify-evenly'>
 
-          <div className='bg-[#0594BB] w-[20rem] h-[10rem] flex flex-col rounded-2xl pl-10 pt-4'>
+          <div className='bg-[#0594BB]/70 w-[20rem] h-[10rem] flex flex-col rounded-2xl pl-10 pt-4'>
             <span className='text-[1.8rem] font-bold'>Total User</span>
             <span className='text-[3rem] font-bold'>12,532</span>
           </div>
 
-          <div className='bg-[#0594BB] w-[20rem] h-[10rem] flex flex-col rounded-2xl pl-10 pt-4'>
+          <div className='bg-[#0594BB]/70 w-[20rem] h-[10rem] flex flex-col rounded-2xl pl-10 pt-4'>
             <span className='text-[1.8rem] font-bold'>Total Subscriptions</span>
             <span className='text-[3rem] font-bold'>6,829</span>
           </div>
 
-          <div className='bg-[#0594BB] w-[20rem] h-[10rem] flex flex-col rounded-2xl pl-10 pt-4'>
+          <div className='bg-[#0594BB]/70 w-[20rem] h-[10rem] flex flex-col rounded-2xl pl-10 pt-4'>
             <span className='text-[1.8rem] font-bold'>Total Review</span>
             <span className='text-[3rem] font-bold'>8,645</span>
           </div>
 
-          <div className='bg-[#0594BB] w-[20rem] h-[10rem] flex flex-col rounded-2xl pl-10 pt-4'>
+          <div className='bg-[#0594BB]/70 w-[20rem] h-[10rem] flex flex-col rounded-2xl pl-10 pt-4'>
             <span className='text-[1.8rem] font-bold'>Revenue</span>
             <span className='text-[3rem] font-bold'>$23,450</span>
           </div>

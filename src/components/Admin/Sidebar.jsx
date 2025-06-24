@@ -20,15 +20,15 @@ const navLinks = [
 
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
-  const baseStyles = "flex items-center gap-3 px-10 py-4 mb-5 rounded-xl transition-all";
-  const activeStyles = "bg-[#0594BB] text-white";
+  const baseStyles = "flex items-center font-bold gap-3 px-10 py-4 mb-5 rounded-xl transition-all";
+  const activeStyles = "bg-[#0594BB]/40 text-white";
   const inactiveStyles = "text-gray-300 hover:bg-gray-700 hover:text-white";
 
   return (
     <>
       {/* Mobile Hamburger */}
       <button
-        className="md:hidden fixed top-4 left-4 z-50 bg-gray-800 p-2 rounded text-white"
+        className="md:hidden fixed top-4 left-4 z-50 bg-[#D9D9D9] p-2 rounded text-white"
         onClick={() => setOpen(true)}
         aria-label="Open sidebar"
       >
@@ -57,8 +57,8 @@ export default function Sidebar() {
                 }
 
               >
-                <span className="text-xl p-2 rounded-xl">{icon}</span>
-                <span className="text-xl">{label}</span>
+                <span className="text-2xl p-2 rounded-xl">{icon}</span>
+                <span className="text-2xl">{label}</span>
               </NavLink>
             ))}
           </nav>
