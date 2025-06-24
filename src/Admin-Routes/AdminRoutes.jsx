@@ -8,7 +8,7 @@ import Settings from "../pages/Admin/setting/Setiing.jsx";
 
 export const adminRoutes = {
   path: "/admin",
-  element: <Layout />,
+  // element: <Layout />,
   children: [
     { index: true, element: <Dashboard /> },
     { path: "users", element: <Users /> },

@@ -40,3 +40,31 @@
 .read-the-docs {
   color: #888;
 } */
+/* App.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-logo {
+  font-size: 40px;
+}
+
+.sideBar {
+  font-size: 22px;
+}
+
+.sideBar button {
+  white-space: nowrap;
+}
+
+table th {
+  font-weight: 600;
+}
+
+td,
+th {
+  white-space: nowrap;
+  font-size: 20px;
+  padding: 12px;
+  line-height: 1.8;
+}

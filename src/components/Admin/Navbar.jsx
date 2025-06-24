@@ -17,7 +17,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <img
-            src="https://via.placeholder.com/40"
+            src="https://tse3.mm.bing.net/th?id=OIF.rUYbmkSK1AxXimTUVaBnmA&pid=Api&P=0&h=180"
             alt="User"
             className="w-10 h-10 rounded-full object-cover"
           />
