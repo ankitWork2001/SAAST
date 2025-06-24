@@ -20,8 +20,8 @@ const navLinks = [
 
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
-  const baseStyles = "flex items-center gap-3 px-4 py-2 rounded-md transition-all";
-  const activeStyles = "bg-blue-600 text-white";
+  const baseStyles = "flex items-center gap-3 px-10 py-4 mb-5 rounded-xl transition-all";
+  const activeStyles = "bg-[#1A1F37] text-white";
   const inactiveStyles = "text-gray-300 hover:bg-gray-700 hover:text-white";
 
   return (
@@ -36,23 +36,28 @@ export default function Sidebar() {
       </button>
 
       {/* Sidebar for desktop */}
-      <aside className="w-64 bg-gray-800 p-4 min-h-screen hidden md:block">
-        <div className="text-white text-2xl font-bold mb-8">TradeSpark</div>
-        <nav className="space-y-2">
-          {navLinks.map(({ to, label, icon, end }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={end}
-              className={({ isActive }) =>
-                `${baseStyles} ${isActive ? activeStyles : inactiveStyles}`
-              }
-            >
-              <span className="text-lg">{icon}</span>
-              <span>{label}</span>
-            </NavLink>
-          ))}
-        </nav>
+      <aside className="w-86 bg-[linear-gradient(to_bottom,_#001434,_#1A1F3700)] p-2 min-h-screen hidden md:block">
+        <div className="flex flex-col justify-center items-center m-auto mt-14">
+          <div className="text-white text-2xl font-bold mb-8 h-35">
+            <img src="public/logo.png" alt="" className="w-50" />
+          </div>
+          <nav className="space-y-2 ">
+            {navLinks.map(({ to, label, icon, end }) => (
+              <NavLink
+                key={to}
+                to={to}
+                end={end}
+                className={({ isActive }) =>
+                  `${baseStyles} ${isActive ? activeStyles : inactiveStyles}`
+                }
+
+              >
+                <span className="text-xl bg-blue-600 p-2 rounded-xl">{icon}</span>
+                <span className="text-xl">{label}</span>
+              </NavLink>
+            ))}
+          </nav>
+        </div>
       </aside>
 
       {/* Sidebar for mobile */}
