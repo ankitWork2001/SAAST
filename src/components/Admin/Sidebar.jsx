@@ -39,7 +39,7 @@ export default function Sidebar() {
       <aside className="w-86 bg-[#121b32] p-2 min-h-screen hidden md:block">
         <div className="flex flex-col justify-center items-center m-auto mt-10">
           <div className="text-white text-2xl font-bold h-35">
-            <img src="logo.png" alt=""  />
+            <img src="/public/logo.png" alt=""  />
           </div>
           <div className="flex flex-col h-auto mb-10">
             <div className="bg-white w-30 h-30 rounded-[50%] ">
