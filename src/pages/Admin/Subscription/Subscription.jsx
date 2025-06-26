@@ -2,7 +2,10 @@ import React from "react";
 
 const plans = [
   { name: "Essential Plan", price: "39.99", duration: "Monthly" },
+
   { name: "Premium Plan", price: "67.99", duration: "Monthly" },
+
+  // hello 
   { name: "Ultimate Plan", price: "199.99", duration: "Monthly" },
 ];
 
