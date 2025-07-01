@@ -1,5 +1,6 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const bgImages = [
   "https://img.freepik.com/free-photo/beautiful-sea-side-landscape_23-2150724997.jpg",
@@ -8,6 +9,52 @@ const bgImages = [
 
 const Signup = () => {
   const [bgIndex, setBgIndex] = useState(0);
+
+  // storing the user details
+  const [user, setuser] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  /// handle chnages function for user details
+
+  const handleChanges = (e) => {
+    setuser({ ...user, [e.target.id]: [e.target.value] });
+  };
+
+  /// posting data to backend
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+
+    let password = user.password;
+    let confirmPassword = user.confirmPassword;
+
+    if (password !== confirmPassword) {
+      alert(`${password} and ${confirmPassword}`)
+      return setuser("")
+    }
+
+    try {
+      const res = await axios.post("http://localhost:5000/api/auth/register", user);
+
+      /// showing alert & redirect to login page 
+      if (res.data.success) {
+        alert("User Register Successfully");
+        // Navigate("/login");
+      }
+    }
+    catch (error) {
+      alert("fail")
+      // alert(error.res.message);
+    }
+
+  }
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,9 +69,8 @@ const Signup = () => {
       {bgImages.map((img, index) => (
         <div
           key={index}
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-[3000ms] ease-in-out ${
-            bgIndex === index ? "opacity-100 z-0" : "opacity-0 z-0"
-          }`}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-[3000ms] ease-in-out ${bgIndex === index ? "opacity-100 z-0" : "opacity-0 z-0"
+            }`}
           style={{ backgroundImage: `url(${img})` }}
         />
       ))}
@@ -37,7 +83,7 @@ const Signup = () => {
         <h1 className="text-3xl sm:text-4xl font-bold mb-2">Sign Up</h1>
         <p className="text-sm sm:text-base text-slate-200 mb-6">Create your account</p>
 
-        <form className="space-y-4 text-sm sm:text-base">
+        <form className="space-y-4 text-sm sm:text-base" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="name" className="block font-semibold mb-1">
               Full Name
@@ -46,6 +92,8 @@ const Signup = () => {
               id="name"
               type="text"
               placeholder="John Doe"
+              value={user.name}
+              onChange={handleChanges}
               className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
@@ -59,6 +107,8 @@ const Signup = () => {
               id="email"
               type="email"
               placeholder="you@example.com"
+              value={user.email}
+              onChange={handleChanges}
               className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
@@ -72,8 +122,10 @@ const Signup = () => {
               id="phone"
               type="tel"
               placeholder="+91 9876543210"
+              minLength={10}
+              maxLength={10}
               className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
+
             />
           </div>
 
@@ -85,6 +137,8 @@ const Signup = () => {
               id="password"
               type="password"
               placeholder="••••••••"
+              value={user.password}
+              onChange={handleChanges}
               className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
@@ -98,6 +152,8 @@ const Signup = () => {
               id="confirmPassword"
               type="password"
               placeholder="••••••••"
+              value={user.confirmPassword}
+              onChange={handleChanges}
               className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
