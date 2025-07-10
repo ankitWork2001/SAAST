@@ -41,7 +41,7 @@ const Login = () => {
 
 
     } catch (error) {
-      alert("fail");
+      alert(error.response?.data?.message || "fail" );
     }
   }
 
