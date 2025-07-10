@@ -1,19 +1,9 @@
 import React from 'react'
 
 //admin components 
-
-
-
-
 function Profile() {
   return (
     <>
-<<<<<<< HEAD
-      <div className=' p-10 flex flex-col gap-5'>
-        <span className='text-4xl font-bold ml-10'>User Profile</span>
-
-
-=======
 
       <div className="min-h-screen bg-[#0a0f2c] text-white p-10 font-sans">
         {/* Back Arrow and Title */}
@@ -63,7 +53,6 @@ function Profile() {
             User’s recent activities, logs and other relevant information
           </p>
         </div>
->>>>>>> admin/plan
       </div>
     </>
   )

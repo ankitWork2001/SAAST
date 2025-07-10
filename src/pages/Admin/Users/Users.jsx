@@ -42,10 +42,7 @@ const users = [
     subscription: "Premium",
     plan: "Monthly",
   },
-<<<<<<< HEAD
   
-=======
->>>>>>> admin/plan
   {
     name: "Olivia Taylor",
     email: "olivia.t7@gmail.com",
