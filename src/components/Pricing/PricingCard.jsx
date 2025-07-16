@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { CheckCircle, Crown, Gem } from 'lucide-react';
 
 const features = {
@@ -48,6 +49,19 @@ const features = {
 
 const PricingCard = ({ plan }) => {
   const data = features[plan];
+
+  const [daata,setDaata]=useState([]);
+
+  useEffect(()=>{
+      try {
+
+        const res = async()=>{
+          const d = await axios.get("http://localhost:3000/api/view-allPlans",{})
+        }
+      } catch (error) {
+        
+      }
+  },[])
 
   return (
     <div className={`bg-gradient-to-br ${data.color} rounded-3xl p-6 w-full max-w-sm shadow-xl`}>
