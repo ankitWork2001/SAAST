@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 const bgImages = [
   "https://img.freepik.com/free-photo/beautiful-sea-side-landscape_23-2150724997.jpg",
   "https://img.freepik.com/free-photo/galaxy-night-landscape_23-2148895320.jpg",
@@ -8,6 +8,44 @@ const bgImages = [
 
 const Login = () => {
   const [bgIndex, setBgIndex] = useState(0);
+  const Navigate = useNavigate();
+
+  //  storing user data
+  const [user,setUser]= useState({email:"",password:""});
+
+  //  handle changes fgunction
+  const handleChanges = (e)=>{
+    setUser({...user,[e.target.id]:e.target.value});
+  };
+
+  /// handle submit 
+
+  const handleSubmit = async(e)=>{
+    e.preventDefault();
+    
+    try {
+      
+      const res = await axios.post("http://localhost:3000/api/auth/login",user);
+
+      if(res.data.success){
+        const {token,user}=res.data;
+
+        alert("User Login");
+        // store token in local storage 
+        localStorage.setItem("token",token);
+        localStorage.setItem("user",user);
+
+        // navigate user to  page
+        Navigate("/");
+      }
+
+
+    } catch (error) {
+      alert(error.response?.data?.message || "fail" );
+    }
+  }
+
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -39,7 +77,7 @@ const Login = () => {
           Welcome back! Please login to your account.
         </p>
 
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email" className="block text-sm font-semibold mb-1">
               Email
@@ -48,6 +86,8 @@ const Login = () => {
               id="email"
               type="email"
               placeholder="you@example.com"
+              value={user.email}
+              onChange={handleChanges}
               className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               required
             />
@@ -61,6 +101,8 @@ const Login = () => {
               id="password"
               type="password"
               placeholder="••••••••"
+              value={user.password}
+              onChange={handleChanges}
               className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               required
             />
