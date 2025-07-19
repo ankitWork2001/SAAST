@@ -33,7 +33,9 @@ const Login = () => {
         alert("User Login");
         // store token in local storage 
         localStorage.setItem("token",token);
-        localStorage.setItem("user",user);
+        localStorage.setItem("userId",user._id);
+        localStorage.setItem("userName",user.name);
+        localStorage.setItem("userRole",user.role);
 
         // navigate user to  page
         Navigate("/");
