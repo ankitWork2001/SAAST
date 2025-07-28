@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-const plans = [
-  { name: "Essential Plan", price: "39.99", duration: "Monthly" },
-
-  { name: "Premium Plan", price: "67.99", duration: "Monthly" },
-
-  // hello 
-  { name: "Ultimate Plan", price: "199.99", duration: "Monthly" },
-];
 
 function Subscription() {
+
+  const [plans, setPlans] = useState([]);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const res = await axios.get("http://localhost:3000/api/view-allPlans", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setPlans(res.data);
+      } catch (error) {
+        alert(error.response?.data?.message || "Failed to fetch users");
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#0F172A] text-white p-6">
       <h2 className="text-xl font-semibold mb-6">Pricing</h2>
@@ -27,7 +39,7 @@ function Subscription() {
             <div className="flex flex-wrap sm:flex-nowrap gap-85">
               <input
                 type="text"
-                value={`$${plan.price}`}
+                value={`$${plan.priceMonthly}`}
                 readOnly
                 className="bg-[#0F172A] text-white px-3 py-2 rounded-md outline-none w-32"
               />
