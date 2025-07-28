@@ -42,6 +42,7 @@ const Plans = () => {
       setProducts(res.data);
     } catch (err) {
       console.error("Failed to fetch products:", err);
+      alert("Failed to fetch products. Please try again later.");
     }
   };
 
