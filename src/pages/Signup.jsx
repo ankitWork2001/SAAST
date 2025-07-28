@@ -1,5 +1,6 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const bgImages = [
   "https://img.freepik.com/free-photo/beautiful-sea-side-landscape_23-2150724997.jpg",
@@ -8,6 +9,42 @@ const bgImages = [
 
 const Signup = () => {
   const [bgIndex, setBgIndex] = useState(0);
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    mobile: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleChanges = (e) => {
+    setUser({ ...user, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const { password, confirmPassword } = user;
+
+    if (password !== confirmPassword) {
+      alert(`${password} and ${confirmPassword} do not match`);
+      return  
+    }
+
+    try {
+      const res = await axios.post("http://localhost:3000/api/auth/register", user);
+
+      if (res.data.success) {
+        alert("User Registered Successfully");
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Registration failed. Please try again.");
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -35,9 +72,11 @@ const Signup = () => {
       {/* Signup Box */}
       <div className="relative z-20 w-full max-w-md bg-white/10 backdrop-blur-md text-white rounded-xl p-6 sm:p-8 shadow-2xl">
         <h1 className="text-3xl sm:text-4xl font-bold mb-2">Sign Up</h1>
-        <p className="text-sm sm:text-base text-slate-200 mb-6">Create your account</p>
+        <p className="text-sm sm:text-base text-slate-200 mb-6">
+          Create your account
+        </p>
 
-        <form className="space-y-4 text-sm sm:text-base">
+        <form className="space-y-4 text-sm sm:text-base" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="name" className="block font-semibold mb-1">
               Full Name
@@ -46,6 +85,8 @@ const Signup = () => {
               id="name"
               type="text"
               placeholder="John Doe"
+              value={user.name}
+              onChange={handleChanges}
               className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
@@ -59,19 +100,25 @@ const Signup = () => {
               id="email"
               type="email"
               placeholder="you@example.com"
+              value={user.email}
+              onChange={handleChanges}
               className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="phone" className="block font-semibold mb-1">
+            <label htmlFor="mobile" className="block font-semibold mb-1">
               Phone Number
             </label>
             <input
-              id="phone"
+              id="mobile"
               type="tel"
               placeholder="+91 9876543210"
+              minLength={10}
+              maxLength={10}
+              value={user.mobile}
+              onChange={handleChanges}
               className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
@@ -85,6 +132,8 @@ const Signup = () => {
               id="password"
               type="password"
               placeholder="••••••••"
+              value={user.password}
+              onChange={handleChanges}
               className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
@@ -98,6 +147,8 @@ const Signup = () => {
               id="confirmPassword"
               type="password"
               placeholder="••••••••"
+              value={user.confirmPassword}
+              onChange={handleChanges}
               className="w-full px-4 py-2 bg-slate-800 text-white rounded-md border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />

@@ -6,6 +6,11 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        'deep-blue': '#001434',
+        'transparent-dark': '#1A1F3700',
+        'whi':'#fffff'
+      },
       animation: {
         orbit: 'orbit 30s linear infinite',
       },
