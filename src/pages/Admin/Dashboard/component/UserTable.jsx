@@ -1,44 +1,7 @@
 import React from 'react';
 
-const UserTable = () => {
-  const users = [
-    {
-      name: 'Jane Smith',
-      email: 'jane.smith@gmail.com',
-      status: 'Active',
-      subscription: 'Premium',
-      plan: 'Monthly',
-    },
-    {
-      name: 'Michael Johnson',
-      email: 'michel.j@gmail.com',
-      status: 'Active',
-      subscription: 'Ultimate',
-      plan: 'Monthly',
-    },
-    {
-      name: 'Emily Brown',
-      email: 'emilybrown@gmail.com',
-      status: 'Active',
-      subscription: 'Essential',
-      plan: 'Yearly',
-    },
-    {
-      name: 'Daniel Wilson',
-      email: 'wilson.d@gmail.com',
-      status: 'Active',
-      subscription: 'Premium',
-      plan: 'Monthly',
-    },
-    {
-      name: 'Olivia Taylor',
-      email: 'olivia.t7@gmail.com',
-      status: 'Active',
-      subscription: 'Essential',
-      plan: 'Monthly',
-    },
-  ];
-
+const UserTable = ({users}) => {
+ 
   return (
     <div className="overflow-x-auto rounded-md">
       <table className="min-w-full text-lg text-left text-white">
