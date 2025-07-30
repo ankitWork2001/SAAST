@@ -28,6 +28,7 @@ import Question from "./components/Pricing/Question";
 import Pricing1 from "./components/Pricing/Pricing1";
 // ADMIN ROUTES
 import { adminRoutes } from "./Admin-Routes/AdminRoutes.jsx";
+import { userRoutes } from "./User-Routes/UserRoutes.jsx";
 
 
 
@@ -145,6 +146,7 @@ export const router = createBrowserRouter([
     ],
   },
   adminRoutes,
+  userRoutes
 ]);
 
 export default router;

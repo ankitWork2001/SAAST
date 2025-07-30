@@ -8,10 +8,10 @@ const UserTable = ({users}) => {
         <thead className="text-lg font-light uppercase border-b border-gray-700">
           <tr>
             <th scope="col" className="px-6 py-3">
-              Recent Users
+              Date
             </th>
             <th scope="col" className="px-6 py-3">
-              Email
+              Palns End
             </th>
             <th scope="col" className="px-6 py-3">
               Status

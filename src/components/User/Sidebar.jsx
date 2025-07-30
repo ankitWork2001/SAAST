@@ -11,11 +11,10 @@ import {
 } from "react-icons/fa";
 
 const navLinks = [
-  { to: "/admin", label: "Dashboard", icon: <FaChartLine />, end: true },
-  { to: "/admin/users", label: "Users", icon: <FaUsers /> },
-  { to: "/admin/subscription", label: "Subscription", icon: <FaDollarSign /> },
-  { to: "/admin/review", label: "Review", icon: <FaStar /> },
-  { to: "/admin/settings", label: "Settings", icon: <FaCog /> },
+  { to: "/user", label: "Dashboard", icon: <FaChartLine />, end: true },
+  { to: "/user/subscription", label: "Subscription", icon: <FaDollarSign /> },
+  { to: "/user/profile", label: "Profile", icon: <FaCog /> },
+  { to: "/user/settings", label: "Settings", icon: <FaCog /> },
 ];
 
 export default function Sidebar() {
